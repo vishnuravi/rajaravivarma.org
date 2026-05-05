@@ -181,8 +181,8 @@ h4 { font-size: 1.15rem; }
 /* ============================================================
    Layout primitives
    ============================================================ */
-.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(28px, 4vw, 56px); position: relative; z-index: 2; }
-.wrap-narrow { max-width: 860px; margin: 0 auto; padding: 0 clamp(28px, 4vw, 56px); position: relative; z-index: 2; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(36px, 4vw, 56px); position: relative; z-index: 2; }
+.wrap-narrow { max-width: 860px; margin: 0 auto; padding: 0 clamp(36px, 4vw, 56px); position: relative; z-index: 2; }
 
 section { position: relative; z-index: 2; }
 
@@ -228,7 +228,7 @@ section { position: relative; z-index: 2; }
 .nav-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 14px clamp(28px, 4vw, 56px);
+  padding: 14px clamp(36px, 4vw, 56px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -343,7 +343,7 @@ body.nav-open .nav-burger span:nth-child(3) { transform: translateY(-5.5px) rota
 .foot-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 clamp(28px, 4vw, 56px);
+  padding: 0 clamp(36px, 4vw, 56px);
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 60px;
@@ -366,8 +366,8 @@ body.nav-open .nav-burger span:nth-child(3) { transform: translateY(-5.5px) rota
   border-top: 1px solid var(--rule);
   max-width: var(--maxw);
   margin-left: auto; margin-right: auto;
-  padding-left: clamp(28px, 4vw, 56px);
-  padding-right: clamp(28px, 4vw, 56px);
+  padding-left: clamp(36px, 4vw, 56px);
+  padding-right: clamp(36px, 4vw, 56px);
   display: flex;
   justify-content: space-between;
   font-family: var(--label);

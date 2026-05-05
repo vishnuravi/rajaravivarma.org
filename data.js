@@ -10,7 +10,7 @@ window.RRV_PAINTINGS = [
     location: 'Free Library of Philadelphia',
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Raja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg/1280px-Raja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg',
     srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Raja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg/1280px-Raja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg',
-    blurb: 'Shakuntala feigns plucking a thorn from her foot — a glance back, in love.'
+    blurb: 'Shakuntala feigns plucking a thorn from her foot, a glance back, in love.'
   },
   {
     id: 'galaxy',
@@ -20,7 +20,7 @@ window.RRV_PAINTINGS = [
     location: 'Sri Jayachama Rajendra Art Gallery, Mysore',
     src: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Raja_Ravi_Varma%2C_Galaxy_of_Musicians.jpg',
     srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Raja_Ravi_Varma%2C_Galaxy_of_Musicians.jpg',
-    blurb: 'Eleven women in regional costume — a vision of an India unified by music.'
+    blurb: 'Eleven women in regional costume, a vision of an India unified by music.'
   },
   {
     id: 'damayanti',
@@ -40,7 +40,7 @@ window.RRV_PAINTINGS = [
     location: 'Sri Chitra Art Gallery, Thiruvananthapuram',
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Mohini_on_a_swing.jpg/1280px-Mohini_on_a_swing.jpg',
     srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Mohini_on_a_swing.jpg/1600px-Mohini_on_a_swing.jpg',
-    blurb: 'The enchantress mid-flight, sari rippling — a study in motion and grace.'
+    blurb: 'The enchantress mid-flight, sari rippling, a study in motion and grace.'
   },
   {
     id: 'lakshmi',
@@ -50,7 +50,7 @@ window.RRV_PAINTINGS = [
     location: 'Ravi Varma Press, Lonavla',
     src: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Ravi_Varma-Lakshmi.jpg',
     srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Ravi_Varma-Lakshmi.jpg',
-    blurb: 'On a lotus, with elephants in attendance — the goddess as Indians have pictured her since.'
+    blurb: 'On a lotus, with elephants in attendance, the goddess as Indians have pictured her since.'
   },
   {
     id: 'saraswati',
@@ -60,7 +60,7 @@ window.RRV_PAINTINGS = [
     location: 'Ravi Varma Press, Lonavla',
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Raja_Ravi_Varma%2C_Goddess_Saraswati.jpg/1280px-Raja_Ravi_Varma%2C_Goddess_Saraswati.jpg',
     srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Raja_Ravi_Varma%2C_Goddess_Saraswati.jpg/1280px-Raja_Ravi_Varma%2C_Goddess_Saraswati.jpg',
-    blurb: 'Veena in hand, swan at her feet — patroness of the arts.'
+    blurb: 'Veena in hand, swan at her feet, patroness of the arts.'
   },
   {
     id: 'sita-bhumi',
@@ -70,7 +70,7 @@ window.RRV_PAINTINGS = [
     location: 'Sri Chitra Art Gallery',
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Sita_Bhumipravesh.jpg/1280px-Sita_Bhumipravesh.jpg',
     srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Sita_Bhumipravesh.jpg/1600px-Sita_Bhumipravesh.jpg',
-    blurb: 'Sita asks the earth to swallow her — a final, harrowing canvas.'
+    blurb: 'Sita asks the earth to swallow her, a final, harrowing canvas.'
   },
   {
     id: 'jatayu',
@@ -87,10 +87,10 @@ window.RRV_PAINTINGS = [
     title: 'Yashoda Adorning Krishna',
     year: 'c. 1900',
     medium: 'Oil on canvas',
-    location: 'Sold for $17.9m, 2026',
+    location: 'Most expensive Indian painting ever sold, 2026',
     src: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Yashoda_with_Krishna%2C_Raja_Ravi_Varma.jpg',
     srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Yashoda_with_Krishna%2C_Raja_Ravi_Varma.jpg',
-    blurb: 'Yashoda dresses the infant Krishna — recently the costliest Indian painting ever sold.'
+    blurb: 'Yashoda dresses the infant Krishna, recently the most expensive Indian painting ever sold.'
   },
   {
     id: 'arjuna-subhadra',
@@ -120,7 +120,7 @@ window.RRV_PAINTINGS = [
     location: 'Sri Chitra Art Gallery',
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Raja_Ravi_Varma%2C_There_Comes_Papa_%281893%29.jpg/1280px-Raja_Ravi_Varma%2C_There_Comes_Papa_%281893%29.jpg',
     srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Raja_Ravi_Varma%2C_There_Comes_Papa_%281893%29.jpg/1280px-Raja_Ravi_Varma%2C_There_Comes_Papa_%281893%29.jpg',
-    blurb: 'A mother with her child — Mahaprabha Thampuratty and her son.'
+    blurb: 'A mother with her child, Mahaprabha Thampuratty and her son.'
   }
 ];
 
@@ -158,7 +158,7 @@ window.RRV_renderChrome = function() {
       <div class="foot-inner">
         <div>
           <h4>About this tribute</h4>
-          <p>This site is a personal tribute to Raja Ravi Varma (1848–1906), maintained by his great-great-grandson <a href="https://vishnu.io" target="_blank" rel="noopener">Vishnu Ravi</a>. It gathers the paintings, the press, and the life — a descendant's offering to a great-great-grandfather's monumental work.</p>
+          <p>This site is a personal tribute to Raja Ravi Varma (1848–1906), maintained by his great-great-grandson <a href="https://vishnu.io" target="_blank" rel="noopener">Vishnu Ravi</a>. It gathers the paintings, the press, and the life, a descendant's offering to a great-great-grandfather's monumental work.</p>
         </div>
         <div>
           <h4>Wander</h4>
@@ -166,7 +166,7 @@ window.RRV_renderChrome = function() {
             <li><a href="index.html">Home</a></li>
             <li><a href="biography.html">Biography</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="shakuntala.html">Shakuntala — a close reading</a></li>
+            <li><a href="shakuntala.html">Shakuntala, a close reading</a></li>
             <li><a href="press.html">The Ravi Varma Press</a></li>
             <li><a href="legacy.html">Legacy</a></li>
           </ul>

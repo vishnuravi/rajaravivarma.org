@@ -8,7 +8,7 @@
   const PALETTES = [
     { id: 'palace', name: 'Palace', desc: 'Ochre, oxblood, paper' },
     { id: 'ink',    name: 'Ink',    desc: 'Deeper ink, richer reds' },
-    { id: 'dusk',   name: 'Dusk',   desc: 'Dark mode — paintings glow' },
+    { id: 'dusk',   name: 'Dusk',   desc: 'Dark mode, paintings glow' },
     { id: 'ivory',  name: 'Ivory',  desc: 'Bright ivory, museum bright' }
   ];
 
@@ -194,7 +194,7 @@
       const nodes = Array.from(parent.childNodes);
       nodes.forEach(node => {
         if (node.nodeType === 3) {
-          // text node — split into word spans
+          // text node, split into word spans
           const words = node.textContent.split(/(\s+)/);
           const frag = document.createDocumentFragment();
           words.forEach(w => {
@@ -212,7 +212,7 @@
           });
           parent.replaceChild(frag, node);
         } else if (node.nodeType === 1) {
-          // element — recurse, don't destroy
+          // element, recurse, don't destroy
           walk(node);
         }
       });
@@ -221,7 +221,7 @@
   });
 })();
 
-// === Mouse parallax — uses CSS variables to compose with existing transforms ===
+// === Mouse parallax, uses CSS variables to compose with existing transforms ===
 (function parallax() {
   const els = document.querySelectorAll('[data-parallax]');
   if (!els.length) return;
@@ -270,7 +270,7 @@
   window.addEventListener('mousemove', onMove, { passive: true });
 })();
 
-// === Floating gold particles — disabled ===
+// === Floating gold particles, disabled ===
 // (function particles() { ... })();
 
 // === Scroll-driven background parallax for ornaments ===

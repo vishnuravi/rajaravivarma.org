@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Raja Ravi Varma — The Painter Who Drew India's Gods</title>
-<link rel="stylesheet" href="styles.css?v=16">
-<link rel="stylesheet" href="tweaks.css?v=16">
+<title>Raja Ravi Varma, The Painter Prince Who Drew India's Gods</title>
+<link rel="stylesheet" href="styles.css?v=18">
+<link rel="stylesheet" href="tweaks.css?v=18">
 <style>
 /* === Page-specific === */
 .hero {
@@ -15,7 +15,7 @@
   grid-template-columns: 1.05fr 1fr;
   gap: clamp(40px, 6vw, 100px);
   align-items: center;
-  padding: clamp(40px, 8vh, 90px) 0 clamp(60px, 10vh, 110px);
+  padding-block: clamp(40px, 8vh, 90px) clamp(60px, 10vh, 110px);
   overflow: hidden;
 }
 .hero-text { position: relative; z-index: 3; }
@@ -64,14 +64,14 @@
 .hero-art .frame {
   transform: rotate(-1.2deg);
   position: relative;
-  aspect-ratio: 4 / 5;
+  display: grid;
   overflow: hidden;
 }
 .hero-art .frame .cycle-img {
-  position: absolute;
-  inset: 8px;
-  width: calc(100% - 16px);
-  height: calc(100% - 16px);
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center 30%;
   opacity: 0;
@@ -169,9 +169,9 @@
   to { transform: translateX(-50%); }
 }
 
-/* Intro section — drop cap two-col */
+/* Intro section, drop cap two-col */
 .intro {
-  padding: clamp(60px, 10vh, 120px) 0;
+  padding-block: clamp(60px, 10vh, 120px);
 }
 .intro-grid {
   display: grid;
@@ -273,10 +273,10 @@
   display: block;
 }
 
-/* Successor feature — Rama Varma */
+/* Successor feature, Rama Varma */
 .lineage {
   background: var(--paper-2);
-  padding: clamp(70px, 11vh, 130px) 0;
+  padding-block: clamp(70px, 11vh, 130px);
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   position: relative;
@@ -412,7 +412,7 @@
 
 /* Cards row to other pages */
 .chapters {
-  padding: clamp(60px, 10vh, 110px) 0;
+  padding-block: clamp(60px, 10vh, 110px);
 }
 .chapter-grid {
   display: grid;
@@ -467,7 +467,7 @@
 .qband {
   background: var(--maroon);
   color: var(--paper);
-  padding: clamp(70px, 12vh, 130px) 0;
+  padding-block: clamp(70px, 12vh, 130px);
   position: relative;
   overflow: hidden;
 }
@@ -618,14 +618,14 @@
 
   <section class="hero">
     <div class="hero-text">
-      <span class="eyebrow reveal">Raja Ravi Varma · 1848 — 1906</span>
+      <span class="eyebrow reveal">Raja Ravi Varma</span>
       <h1 data-parallax="-0.3">
-        The painter <span class="amp">who drew</span><br>
+        The painter prince <span class="amp">who drew</span><br>
         India's gods
-        <span class="alt">— and put them on a million walls</span>
+        <span class="alt">, and put them on a million walls</span>
       </h1>
       <p class="lede">
-        Raja Ravi Varma fused the wet-on-wet realism of European salons with the iconography of the Puranas — and then, in a press at Lonavla, opened the result to every Indian home.
+        Raja Ravi Varma fused the wet-on-wet realism of European salons with the iconography of the Puranas, and then, in a press at Lonavla, democratized art for the Indian masses.
       </p>
       <div class="hero-actions">
         <a class="btn" href="biography.html">Begin the story</a>
@@ -637,10 +637,10 @@
       <div class="frame kenburns" data-parallax="0.4" data-hero-cycle>
         <img class="cycle-img is-active"
              src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Raja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg/1280px-Raja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg"
-             alt="Shakuntala — c. 1870" loading="eager">
+             alt="Shakuntala, c. 1870" loading="eager">
         <img class="cycle-img"
              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Ravi_Varma-Princess_Damayanthi_talking_with_Royal_Swan_about_Nala.jpg/1280px-Ravi_Varma-Princess_Damayanthi_talking_with_Royal_Swan_about_Nala.jpg"
-             alt="Damayanti and the Royal Swan — 1899" loading="lazy">
+             alt="Damayanti and the Royal Swan, 1899" loading="lazy">
         <img class="cycle-img"
              src="https://upload.wikimedia.org/wikipedia/commons/3/31/Yashoda_with_Krishna%2C_Raja_Ravi_Varma.jpg"
              alt="Yashoda with Krishna" loading="lazy">
@@ -694,33 +694,33 @@
       <span class="num-label">An Introduction</span>
     </aside>
     <div class="intro-body reveal">
-      <p class="dropcap">In 1873, a painter from a small Kerala palace sent four canvases to Vienna and won a prize. He was twenty-five. Within two decades the gods of the subcontinent looked the way <em>he</em> said they looked: poised, fleshly, lit from a window in a palace that didn't quite exist. Lakshmi standing on her lotus. Saraswati at her veena. Krishna, in the soft round of his foster-mother's lap.</p>
+      <p class="dropcap">In 1873, an artist from a small Kerala palace sent four canvases to Vienna and won a prize. He was twenty-five. Within two decades the gods of the subcontinent looked the way <em>he</em> said they looked: poised, fleshly, lit from a window in a palace that didn't quite exist. Lakshmi standing on her lotus. Saraswati at her veena. Krishna, in the soft round of his foster-mother's lap.</p>
 
-      <p>Raja Ravi Varma was not the first Indian artist to hold an oil brush — but he was the first to make the medium speak Sanskrit. He commanded the academic naturalism of Theodore Jensen and the dramatic pathos of late-Victorian salon painting, and made them serve the Mahabharata. And then, knowing his true audience was the Indian people themselves, he opened a lithographic press and put his goddesses within reach of every household — at two annas apiece.</p>
+      <p>Raja Ravi Varma was not the first Indian artist to hold an oil brush, but he was the first to make the medium speak Sanskrit. He commanded the academic naturalism of Theodore Jensen and the dramatic pathos of late-Victorian salon painting, and made them serve the Mahabharata. And then, knowing his true audience was the Indian people themselves, he opened a lithographic press and put his goddesses within reach of every household.</p>
 
       <div class="pull pull-rotator" data-rotate>
         <blockquote class="pull-item is-active">
           "In my childhood, when Ravi Varma's age arrived in Bengal, reproductions of European paintings on the walls were promptly replaced with oleographs of his works."
-          <span class="pull-cite">— Rabindranath Tagore</span>
+          <span class="pull-cite">, Rabindranath Tagore</span>
         </blockquote>
         <blockquote class="pull-item">
           "There is hardly a Hindu home in this country without a print of one or another of Ravi Varma's deities."
-          <span class="pull-cite">— Bal Gangadhar Tilak</span>
+          <span class="pull-cite">, Bal Gangadhar Tilak</span>
         </blockquote>
         <blockquote class="pull-item">
           "Ravi Varma was the first artist to give the Hindu pantheon a face the whole subcontinent could agree on."
-          <span class="pull-cite">— Partha Mitter, art historian</span>
+          <span class="pull-cite">, Partha Mitter, art historian</span>
         </blockquote>
         <div class="pull-dots" aria-hidden="true"></div>
       </div>
 
-      <p>This is a small tribute, gathered by a descendant who is still learning to see what he saw. What follows are six chapters: a biography, a gallery, a close reading of <em>Shakuntala</em>, a portrait of the Press, an essay on style, and a survey of his long shadow on Indian cinema and visual culture.</p>
+      <p>What follows are six chapters: a biography, a gallery, a close reading of <em>Shakuntala</em>, a portrait of the Press, an essay on style, and a survey of his long shadow on Indian cinema and visual culture.</p>
     </div>
   </div>
 
   <div class="stats" data-stagger>
     <div class="stat reveal reveal-up"><span class="n">1848</span><span class="l">Born, Kilimanoor</span></div>
-    <div class="stat reveal reveal-up"><span class="n">$17.9m</span><span class="l">Yashoda &amp; Krishna · 2026</span></div>
+    <div class="stat reveal reveal-up"><span class="n">1873</span><span class="l">Vienna prize · age 25</span></div>
     <div class="stat reveal reveal-up"><span class="n">1894</span><span class="l">Press founded · Bombay</span></div>
     <div class="stat reveal reveal-up"><span class="n">1906</span><span class="l">Died, Kilimanoor</span></div>
   </div>
@@ -732,7 +732,7 @@
     <blockquote>
       Ravi Varma is the indisputable father figure of modern Indian art.
     </blockquote>
-    <cite>— Geeta Kapur, art historian</cite>
+    <cite>, Geeta Kapur, art historian</cite>
   </div>
 </div>
 
@@ -755,13 +755,13 @@
         <span class="eyebrow">The line continues</span>
         <h2>His son, <span class="name">Rama Varma</span><br><span style="font-style: normal; font-size: 0.5em; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-top: 14px;">b. 1879 · Artist Thampuran of Mavelikara</span></h2>
 
-        <p>The younger son of Raja Ravi Varma, Rama Varma — known across Kerala as the <em>Artist Thampuran</em> — inherited his father's hand and carried his discipline forward into the next century. From 1897 to 1903 he studied at the Sir J. J. School of Art in Bombay, then returned home to Mavelikara, set up his own studio, and worked alongside his father until Ravi Varma's death in 1906.</p>
+        <p>The younger son of Raja Ravi Varma, Rama Varma, known across Kerala as the <em>Artist Thampuran</em>, inherited his father's hand and carried his discipline forward into the next century. From 1897 to 1903 he studied at the Sir J. J. School of Art in Bombay, then returned home to Mavelikara, set up his own studio, and worked alongside his father until Ravi Varma's death in 1906.</p>
 
-        <p>He painted portraits, history scenes, and figures from legend — among them <em>Ajavilapam</em>, a portrait of Sir Winston Churchill, a study of Rana Pratap, and, in 1948, a portrait of his father. Many of his canvases carry the unmistakable proportions, the cast of light, the fall of cloth that he had learned at his father's side.</p>
+        <p>He painted portraits, history scenes, and figures from legend, among them <em>Ajavilapam</em>, a portrait of Sir Winston Churchill, a study of Rana Pratap, and, in 1948, a portrait of his father. Many of his canvases carry the unmistakable proportions, the cast of light, the fall of cloth that he had learned at his father's side.</p>
 
-        <p class="pull">"He left behind an impressive legacy as an artist, teacher, and social activist — and was the driving force behind the establishment of the Raja Ravi Varma College of Fine Arts in Mavelikara."</p>
+        <p class="pull">"He left behind an impressive legacy as an artist, teacher, and social activist, and was the driving force behind the establishment of the Raja Ravi Varma College of Fine Arts in Mavelikara."</p>
 
-        <p>The school he built, known locally as the <em>Painting School</em>, welcomed students from every section of Keralite society. Rama Varma married Gowri Kunjamma — sister of Dewan P. G. N. Unnithan — and had seven children. The line he carried forward runs, four generations on, to the descendant who has gathered this site.</p>
+        <p>The school he built, known locally as the <em>Painting School</em>, welcomed students from every section of Keralite society. Rama Varma married Gowri Kunjamma, sister of Dewan P. G. N. Unnithan, and had seven children. The line he carried forward runs, four generations on, to the descendant who has gathered this site.</p>
 
         <div class="lineage-facts">
           <div class="f">
@@ -791,19 +791,19 @@
     <a class="chapter reveal reveal-up" href="biography.html">
       <span class="num">i</span>
       <h3>The Life</h3>
-      <p>From a feudal palace in Travancore to the durbar halls of Baroda — the biography, told as a timeline.</p>
+      <p>From a feudal palace in Travancore to the durbar halls of Baroda, the biography, told as a timeline.</p>
       <span class="arrow">Read the biography</span>
     </a>
     <a class="chapter reveal reveal-up" href="gallery.html">
       <span class="num">ii</span>
       <h3>The Gallery</h3>
-      <p>Twelve paintings, framed and captioned. Click any to look closer — the canvas opens.</p>
+      <p>Twelve paintings, framed and captioned. Click any to look closer, the canvas opens.</p>
       <span class="arrow">Enter the gallery</span>
     </a>
     <a class="chapter reveal reveal-up" href="shakuntala.html">
       <span class="num">iii</span>
       <h3>Shakuntala</h3>
-      <p>A scrolling, close-reading of his most famous painting — the thorn, the glance, the lover beyond the frame.</p>
+      <p>A scrolling, close-reading of his most famous painting, the thorn, the glance, the lover beyond the frame.</p>
       <span class="arrow">Look closer</span>
     </a>
     <a class="chapter reveal reveal-up" href="press.html">
@@ -821,15 +821,15 @@
     <a class="chapter reveal reveal-up" href="biography.html#timeline">
       <span class="num">vi</span>
       <h3>A Timeline</h3>
-      <p>1848 to 1906, year by year — patrons, prizes, paintings, the press, and the long quiet at Kilimanoor.</p>
+      <p>1848 to 1906, year by year, patrons, prizes, paintings, the press, and the long quiet at Kilimanoor.</p>
       <span class="arrow">See the years</span>
     </a>
   </div>
 </section>
 
-<script src="data.js?v=16"></script>
+<script src="data.js?v=18"></script>
 <script>RRV_renderChrome();</script>
-<script src="shared.js?v=16"></script>
+<script src="shared.js?v=18"></script>
 <script>
 (function cycleHero() {
   const frame = document.querySelector('[data-hero-cycle]');
