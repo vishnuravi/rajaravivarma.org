@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raja Ravi Varma, The Painter Prince Who Drew India's Gods</title>
-<link rel="stylesheet" href="styles.css?v=33">
-<link rel="stylesheet" href="tweaks.css?v=33">
+<link rel="stylesheet" href="styles.css?v=34">
+<link rel="stylesheet" href="tweaks.css?v=34">
 <style>
 /* === Page-specific === */
 .hero {
@@ -26,7 +26,7 @@
   right: -8vw;
   top: -10vh;
   color: var(--gold);
-  opacity: 0.38;
+  opacity: 0.55;
   pointer-events: none;
   z-index: 0;
 }
@@ -534,10 +534,6 @@
   <!-- Lotus mandala: layered petals, two counter-rotating layers -->
   <svg class="hero-mandala" viewBox="0 0 600 600" aria-hidden="true">
     <defs>
-      <radialGradient id="mg" cx="50%" cy="50%" r="50%">
-        <stop offset="55%" stop-color="transparent"/>
-        <stop offset="100%" stop-color="var(--paper)"/>
-      </radialGradient>
       <path id="petalOuter" d="M 300 90 C 290 70 290 40 300 20 C 310 40 310 70 300 90 Z"/>
       <path id="petalInner" d="M 300 260 C 268 220 268 150 300 130 C 332 150 332 220 300 260 Z"/>
     </defs>
@@ -620,8 +616,6 @@
       <circle cx="283" cy="294" r="1.4"/>
     </g>
 
-    <!-- Vignette fade to paper -->
-    <circle cx="300" cy="300" r="300" fill="url(#mg)"/>
   </svg>
 
   <section class="hero">
@@ -836,9 +830,9 @@
   </div>
 </section>
 
-<script src="data.js?v=33"></script>
+<script src="data.js?v=34"></script>
 <script>RRV_renderChrome();</script>
-<script src="shared.js?v=33"></script>
+<script src="shared.js?v=34"></script>
 <script>
 (function cycleHero() {
   const frame = document.querySelector('[data-hero-cycle]');
