@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gallery, Raja Ravi Varma</title>
-<link rel="stylesheet" href="styles.css?v=29">
-<link rel="stylesheet" href="tweaks.css?v=29">
+<link rel="stylesheet" href="styles.css?v=30">
+<link rel="stylesheet" href="tweaks.css?v=30">
 <style>
 .gal-hero {
   padding-block: clamp(50px, 8vh, 100px) clamp(30px, 5vh, 60px);
@@ -212,24 +212,24 @@
   </div>
 </div>
 
-<script src="data.js?v=29"></script>
+<script src="data.js?v=30"></script>
 <script>RRV_renderChrome();</script>
 <script>
 (function gallery() {
   const grid = document.getElementById('grid');
   const order = [
     {id: 'galaxy', size: 'l'},
-    {id: 'self-portrait', size: 'm'},
-    {id: 'shakuntala', size: 'l'},
-    {id: 'damayanti', size: 'm'},
     {id: 'lakshmi', size: 's'},
+    {id: 'self-portrait', size: 'm'},
+    {id: 'damayanti', size: 'm'},
     {id: 'saraswati', size: 's'},
-    {id: 'milkmaid', size: 's'},
-    {id: 'sita-bhumi', size: 's'},
-    {id: 'jatayu', size: 'l'},
+    {id: 'shakuntala', size: 'l'},
     {id: 'krishna-yashoda', size: 'm'},
-    {id: 'arjuna-subhadra', size: 'm'},
-    {id: 'there-comes-papa', size: 'm'}
+    {id: 'there-comes-papa', size: 'm'},
+    {id: 'jatayu', size: 'l'},
+    {id: 'milkmaid', size: 's'},
+    {id: 'sita-bhumi', size: 'm'},
+    {id: 'arjuna-subhadra', size: 'm'}
   ];
   const items = order.map(o => RRV_PAINTINGS.find(p => p.id === o.id) ? {...RRV_PAINTINGS.find(p=>p.id===o.id), size: o.size} : null).filter(Boolean);
 
@@ -300,6 +300,6 @@
   });
 })();
 </script>
-<script src="shared.js?v=29"></script>
+<script src="shared.js?v=30"></script>
 </body>
 </html>
