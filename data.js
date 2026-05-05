@@ -131,7 +131,7 @@ window.RRV_renderChrome = function() {
       <div class="nav-inner">
         <a href="index.html" class="nav-mark">
           <span class="glyph"><i>R</i></span>
-          <span>Raja Ravi Varma <span style="color:var(--ink-soft); margin: 0 8px;">·</span> 1848–1906</span>
+          <span>Raja Ravi Varma<span class="nav-dates"><span style="color:var(--ink-soft); margin: 0 8px;">·</span>1848–1906</span></span>
         </a>
         <div class="nav-links" id="navLinks">
           <a href="index.html">Home</a>
