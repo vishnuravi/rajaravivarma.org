@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raja Ravi Varma, The Artist Who Brought India's Gods to Life</title>
-<link rel="stylesheet" href="styles.css?v=38">
-<link rel="stylesheet" href="tweaks.css?v=38">
+<link rel="stylesheet" href="styles.css?v=39">
+<link rel="stylesheet" href="tweaks.css?v=39">
 <style>
 /* === Page-specific === */
 .hero {
@@ -91,16 +91,15 @@
   bottom: -96px;
   left: 12px;
   max-width: 280px;
-  min-height: 3em;
+  display: grid;
 }
 .hero-art .caption .cap {
+  grid-area: 1 / 1;
   display: block;
-  position: absolute;
-  inset: 0;
   opacity: 0;
   transition: opacity 0.8s ease;
 }
-.hero-art .caption .cap.is-active { opacity: 1; position: relative; }
+.hero-art .caption .cap.is-active { opacity: 1; }
 .hero-art .stamp {
   position: absolute;
   top: -28px;
@@ -922,9 +921,9 @@
   </div>
 </section>
 
-<script src="data.js?v=38"></script>
+<script src="data.js?v=39"></script>
 <script>RRV_renderChrome();</script>
-<script src="shared.js?v=38"></script>
+<script src="shared.js?v=39"></script>
 <script>
 (function cycleHero() {
   const frame = document.querySelector('[data-hero-cycle]');
