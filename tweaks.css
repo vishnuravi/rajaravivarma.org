@@ -1,0 +1,119 @@
+/* Tweaks panel styling — old-world Indian aesthetic */
+
+#tweaks-panel {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 320px;
+  background: var(--paper);
+  border: 1px solid var(--oxblood-deep);
+  box-shadow:
+    0 0 0 4px var(--paper),
+    0 0 0 5px var(--gold),
+    0 30px 60px -10px rgba(0,0,0,0.4);
+  font-family: var(--body);
+  color: var(--ink);
+  z-index: 9999;
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s, transform .25s;
+}
+#tweaks-panel.show { opacity: 1; transform: none; pointer-events: auto; }
+
+.tw-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--rule);
+  background: linear-gradient(to bottom, var(--paper-2), var(--paper));
+}
+.tw-title {
+  font-family: var(--label);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+.tw-close {
+  background: none; border: 0;
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  line-height: 1;
+}
+.tw-close:hover { color: var(--oxblood); }
+
+.tw-section {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.tw-section:last-child { border-bottom: 0; }
+
+.tw-label {
+  font-family: var(--label);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.tw-palettes { display: flex; flex-direction: column; gap: 6px; }
+.tw-pal {
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--body);
+  color: var(--ink);
+  transition: background .15s, border-color .15s;
+}
+.tw-pal:hover { background: var(--paper-2); }
+.tw-pal.on { border-color: var(--gold); background: var(--paper-2); }
+.tw-swatch {
+  width: 28px; height: 28px;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 0 0 1px var(--oxblood-deep);
+}
+.tw-sw-palace { background: linear-gradient(135deg, #f3e7d0 0%, #f3e7d0 33%, #b8842e 33%, #b8842e 66%, #5a1320 66%); }
+.tw-sw-ink    { background: linear-gradient(135deg, #f0e3c8 0%, #f0e3c8 33%, #c8923a 33%, #c8923a 66%, #6a1e2a 66%); }
+.tw-sw-dusk   { background: linear-gradient(135deg, #1c1410 0%, #1c1410 33%, #d4a44a 33%, #d4a44a 66%, #8a2030 66%); }
+.tw-sw-ivory  { background: linear-gradient(135deg, #faf3e3 0%, #faf3e3 33%, #b8842e 33%, #b8842e 66%, #7a2030 66%); }
+.tw-pal-text { display: flex; flex-direction: column; }
+.tw-pal-name { font-family: var(--display); font-size: 1.05rem; line-height: 1.1; }
+.tw-pal-desc { font-size: 0.78rem; color: var(--ink-soft); }
+
+.tw-toggle, .tw-radio label {
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  padding: 4px 0;
+}
+.tw-toggle input { accent-color: var(--oxblood); }
+
+.tw-radio {
+  display: flex; gap: 6px;
+}
+.tw-radio label {
+  flex: 1;
+  border: 1px solid var(--rule);
+  padding: 6px 10px;
+  justify-content: center;
+  text-transform: capitalize;
+  font-family: var(--label);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+.tw-radio label input { display: none; }
+.tw-radio label.on { border-color: var(--gold); background: var(--paper-2); color: var(--oxblood); }
+
+/* Density variants */
+body[data-density="airy"] section { padding-top: 1.5em; padding-bottom: 1.5em; }
+body[data-density="dense"] section { padding-top: 0; padding-bottom: 0; }
+
+body.no-ornaments .ornament { display: none; }

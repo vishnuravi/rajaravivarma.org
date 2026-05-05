@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biography — Raja Ravi Varma</title>
+<link rel="stylesheet" href="styles.css?v=15">
+<link rel="stylesheet" href="tweaks.css?v=15">
+<style>
+.bio-hero {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+  padding: clamp(50px, 8vh, 110px) 0;
+}
+.bio-hero h1 { font-style: italic; margin-bottom: 28px; }
+.bio-hero .meta {
+  display: flex; gap: 40px;
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.bio-hero .meta div .l { font-family: var(--label); font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); display:block; margin-bottom: 4px;}
+.bio-hero .meta div .v { font-family: var(--display); font-style: italic; font-size: 1.3rem; }
+
+.bio-hero .portrait { position: relative; }
+.bio-hero .portrait .frame { transform: rotate(1deg); }
+.bio-hero .portrait .caption { margin-top: 18px; }
+
+/* Reading section */
+.reading {
+  padding: clamp(40px, 6vh, 80px) 0;
+}
+.reading-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.reading-aside {
+  position: sticky;
+  top: 100px;
+}
+.reading-aside .roman {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 5rem;
+  color: var(--gold);
+  line-height: 0.9;
+}
+.reading-aside h3 {
+  font-style: italic;
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+.reading-aside p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  border-left: 1px solid var(--gold);
+  padding-left: 18px;
+}
+.reading-body { max-width: var(--readw); }
+.reading-body p { font-size: 1.08rem; margin: 0 0 1.4em; }
+.reading-body p:first-child::first-letter,
+.reading-body.dropcap::first-letter {
+  font-family: var(--display);
+  font-weight: 500;
+  float: left;
+  font-size: 5em;
+  line-height: 0.85;
+  padding: 0.05em 0.12em 0 0;
+  color: var(--oxblood);
+}
+.reading-body .small-caps {
+  font-family: var(--label);
+  font-size: 0.85em;
+  letter-spacing: 0.08em;
+}
+
+.section-divider {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: clamp(40px, 6vh, 80px) auto;
+  max-width: 100%;
+}
+
+/* === Timeline === */
+.timeline-wrap {
+  background: linear-gradient(to bottom, var(--paper) 0%, var(--paper-2) 50%, var(--paper) 100%);
+  padding: clamp(60px, 10vh, 120px) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.timeline-head { text-align: center; margin-bottom: 60px; }
+.timeline-head h2 { font-style: italic; }
+
+.timeline {
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold), var(--gold), transparent);
+  transform: translateX(-0.5px);
+}
+.tl-item {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  gap: 0;
+  margin-bottom: 70px;
+  align-items: start;
+}
+.tl-item .tl-year {
+  text-align: center;
+  position: relative;
+}
+.tl-item .tl-year .y {
+  display: inline-block;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--paper);
+  background: var(--oxblood);
+  padding: 6px 12px;
+  border: 1px solid var(--gold);
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+.tl-item .tl-year::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 16px;
+  transform: translateX(-50%);
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--gold);
+  z-index: 0;
+  opacity: 0.4;
+  filter: blur(6px);
+}
+.tl-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 22px 26px;
+  position: relative;
+}
+.tl-card h4 { font-family: var(--display); font-style: italic; font-size: 1.4rem; margin-bottom: 8px; color: var(--ink); }
+.tl-card p { font-size: 0.96rem; color: var(--ink-soft); margin: 0; }
+.tl-card .age {
+  position: absolute;
+  top: 8px; right: 12px;
+  font-family: var(--label);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.tl-item:nth-child(odd) .tl-card { grid-column: 1; margin-right: 18px; text-align: right; }
+.tl-item:nth-child(odd) .tl-year { grid-column: 2; }
+.tl-item:nth-child(odd) .tl-spacer { grid-column: 3; }
+
+.tl-item:nth-child(even) .tl-spacer { grid-column: 1; }
+.tl-item:nth-child(even) .tl-year { grid-column: 2; }
+.tl-item:nth-child(even) .tl-card { grid-column: 3; margin-left: 18px; }
+
+.tl-card::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  width: 18px; height: 1px;
+  background: var(--rule-strong);
+}
+.tl-item:nth-child(odd) .tl-card::after { right: -18px; }
+.tl-item:nth-child(even) .tl-card::after { left: -18px; }
+
+.tl-card.feature {
+  background: var(--maroon);
+  color: var(--paper);
+  border-color: var(--oxblood-deep);
+}
+.tl-card.feature h4 { color: var(--gold); }
+.tl-card.feature p { color: var(--paper); opacity: 0.85; }
+.tl-card.feature .age { color: var(--gold-bright); }
+
+@media (max-width: 800px) {
+  .bio-hero { grid-template-columns: 1fr; }
+  .bio-hero .portrait { max-width: 360px; }
+  .reading-grid { grid-template-columns: 1fr; }
+  .reading-aside { position: relative; top: 0; }
+  .timeline::before { left: 20px; }
+  .tl-item, .tl-item:nth-child(odd), .tl-item:nth-child(even) {
+    grid-template-columns: 60px 1fr;
+  }
+  .tl-item .tl-year, .tl-item:nth-child(odd) .tl-year, .tl-item:nth-child(even) .tl-year { grid-column: 1; text-align: left; }
+  .tl-item .tl-card, .tl-item:nth-child(odd) .tl-card, .tl-item:nth-child(even) .tl-card {
+    grid-column: 2; margin: 0; text-align: left;
+  }
+  .tl-spacer { display: none; }
+  .tl-card::after { display: none; }
+  .tl-item .tl-year .y { font-size: 1rem; padding: 4px 8px; }
+}
+</style>
+</head>
+<body>
+<section class="wrap">
+  <div class="bio-hero">
+    <div class="reveal">
+      <span class="eyebrow">Chapter I · Biography</span>
+      <h1 style="margin-top: 18px;">A life in four palaces</h1>
+      <p class="lede">From a feudal estate near Trivandrum, to the durbar of Baroda, to a printing press in the hills above Bombay — Ravi Varma's life followed the patronage of Indian princes and the appetite of an emerging public.</p>
+      <div class="meta">
+        <div><span class="l">Born</span><span class="v">29 April 1848</span></div>
+        <div><span class="l">Died</span><span class="v">2 October 1906</span></div>
+        <div><span class="l">Place</span><span class="v">Kilimanoor, Kerala</span></div>
+      </div>
+    </div>
+    <div class="portrait reveal">
+      <div class="frame">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Self_portrait_by_Raja_Ravi_Varma.jpg" alt="Ravi Varma self-portrait" loading="lazy">
+      </div>
+      <div class="caption" style="margin-top: 14px;">
+        <em>Self-Portrait</em> · c. 1880<br>
+        Oil on canvas · Kilimanoor Palace
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+
+<section class="reading wrap">
+  <div class="reading-grid">
+    <aside class="reading-aside reveal">
+      <span class="roman">I</span>
+      <h3>Kilimanoor</h3>
+      <p>Born 29 April 1848 to an aristocratic Travancore family. Drew on the palace walls in chalk and charcoal before he could write.</p>
+    </aside>
+    <div class="reading-body reveal">
+      <p class="dropcap">Ravi Varma was born <span class="small-caps">Koil Thampuran</span> at Kilimanoor Palace, fifty kilometres north of the Travancore capital. The "Raja" came later, conferred personally by Lord Curzon in 1904, eight years before his death and a long way from Kerala. His mother Uma Ambabayi Thampuratty was a poet who composed verses for Kathakali; his father a Sanskrit scholar of Ayurveda. The household ran on epics, on song, on the slow ceremonies of feudal life.</p>
+      <p>His first teacher was his uncle Raja Raja Varma — drawing lessons in the palace, charcoal sketches of horses and gods. At thirteen the Maharaja of Travancore, Ayilyam Thirunal, summoned him to court and let him watch the painters there. It was at court that he first saw a European canvas — work by Theodore Jensen — and decided that <em>this</em> was what painting could do.</p>
+      <p>The royal master Ramaswamy Naidu refused to teach him. Naidu's assistant Arumugham Pillai showed him a few oil techniques; Jensen, on a visit, was reluctant. Varma was, in essence, self-taught in the medium that would make him famous.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="reading-grid">
+    <aside class="reading-aside reveal">
+      <span class="roman">II</span>
+      <h3>Vienna, 1873</h3>
+      <p>The breakthrough. A painting sent to a colonial art exhibition wins a Vienna prize. The artist is twenty-five.</p>
+    </aside>
+    <div class="reading-body reveal">
+      <p class="dropcap">In 1873 a panel of his work — including the original <em>Shakuntala</em> — was shipped to the Madras Fine Arts Exhibition, then on to Vienna. He won the Governor's gold medal at one and acclaim at the other. By the end of the decade he was the most-commissioned portraitist in southern India, painting Indian royals in their court regalia, British administrators in their starched whites, and noblewomen lit, increasingly, by an almost European window-light.</p>
+      <p>His brother <span class="small-caps">C. Raja Raja Varma</span> joined him in 1880 and never left. Raja painted the backgrounds — the landscapes, the architectural perspectives, the lush foliage that grounds figures like Damayanti and her swan. Ravi painted the figures. Their elder sister, Mangalabai Thampuratty, was an oil painter too, and advised on the work. Ravi Varma worked at the heart of a family studio — his vision, supported by a household of artists who shared his discipline.</p>
+      <p>The Gaekwad of Baroda, Sayajirao III, became the painter's most consequential patron. In 1888 he commissioned fourteen mythological paintings for the Durbar Hall of his new Lakshmi Vilas Palace — Krishna scenes, episodes from the Mahabharata. They are the canvases for which Varma is now most famous, and they hang in Vadodara still.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="reading-grid">
+    <aside class="reading-aside reveal">
+      <span class="roman">III</span>
+      <h3>The Press</h3>
+      <p>1894. A lithographic press at Ghatkopar, Bombay, then moved to Lonavla. Lakshmi for two annas.</p>
+    </aside>
+    <div class="reading-body reveal">
+      <p class="dropcap">On the advice of <span class="small-caps">T. Madhava Rao</span>, the former Dewan of Travancore, Ravi Varma started a lithographic printing press in Ghatkopar in 1894 and shifted it five years later to Malavli, near Lonavla, where the air was drier and the German technology — imported with a German technician, Fritz Schleicher — could run cleanly. The press produced oleographs of Hindu gods and goddesses, scenes from the Mahabharata and the Ramayana, the great panel of musicians.</p>
+      <p>It is hard, today, to overstate what this did. Reproduction had been a Western monopoly; Indian middle-class homes hung German lithographs of European saints because that was what came in the post. Ravi Varma's prints reversed it. They were cheap, beautiful, and Indian. Tagore wrote that on Bengal walls, oleographs of Ravi Varma's gods replaced reproductions of European paintings, "promptly." For lower-caste Indians barred from temples, the prints were how they finally saw the goddesses.</p>
+      <p>In 1901 Ravi Varma transferred the press to Fritz Schleicher, who ran it commercially for decades. A 1972 fire destroyed the factory at Lonavla, taking most of the original lithographic stones with it. What survives of his oleographic work is, mostly, what was already on people's walls.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="reading-grid">
+    <aside class="reading-aside reveal">
+      <span class="roman">IV</span>
+      <h3>The long quiet</h3>
+      <p>1906. The painter's brother dies. Ravi Varma's diabetes worsens. He returns to Kilimanoor and dies in October.</p>
+    </aside>
+    <div class="reading-body reveal">
+      <p class="dropcap">Around his fifty-seventh birthday Ravi Varma announced that he would take Sanyasa at sixty — retire from painting, from commissions, from public life. He did not get there. His brother and lifelong collaborator Raja Raja Varma died in 1905; Ravi never recovered. His diabetes worsened. He died at Kilimanoor on 2 October 1906, fifty-eight years old.</p>
+      <p>In 1904 Viceroy Curzon had given him the Kaisar-i-Hind Gold Medal — and the title <em>Raja</em>, which he carries today as if it were inherited. It was not. It was his.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="reading-grid">
+    <aside class="reading-aside reveal">
+      <span class="roman">V</span>
+      <h3>The line continues</h3>
+      <p>His son Rama Varma — the <em>Artist Thampuran</em> — carried the work into the next century. b. 1879.</p>
+    </aside>
+    <div class="reading-body reveal">
+      <p class="dropcap">Ravi Varma's younger son <span class="small-caps">Rama Varma</span> — known across Kerala as the <em>Artist Thampuran</em> — was born in 1879 and inherited his father's hand. From 1897 to 1903 he studied at the Sir J. J. School of Art in Bombay, then returned home to Mavelikara, set up his own studio, and worked beside his father until Ravi Varma's death in 1906.</p>
+      <p>He painted portraits, history scenes, and figures from legend — among them <em>Ajavilapam</em> (1934), a portrait of Sir Winston Churchill (1934), a study of Rana Pratap (1934), and, in 1948, a portrait of his father. Many of his canvases carry the unmistakable proportions, the cast of light, the fall of cloth that he had learned at Ravi Varma's side.</p>
+      <p>He was, in the words of the Kerala Museum's record of him, "an artist, teacher, and social activist" — and the driving force behind the establishment of the <span class="small-caps">Raja Ravi Varma College of Fine Arts</span> in Mavelikara, known locally as the <em>Painting School</em>. It welcomed students from every section of Keralite society, and stands today.</p>
+      <p>Rama Varma married <span class="small-caps">Gowri Kunjamma</span>, sister of Dewan P. G. N. Unnithan, and had seven children. The line he carried forward runs, four generations on, to the descendant who has gathered this site.</p>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-wrap" id="timeline">
+  <div class="wrap">
+    <div class="timeline-head reveal">
+      <span class="eyebrow">A Year-By-Year</span>
+      <h2 style="margin-top: 12px;">Timeline · 1848 — 1906</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-year"><span class="y">1848</span></div>
+        <div class="tl-card"><span class="age">Born</span><h4>Birth at Kilimanoor</h4><p>Born 29 April into the matrilineal aristocracy of Travancore.</p></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-spacer"></div>
+        <div class="tl-year"><span class="y">1861</span></div>
+        <div class="tl-card"><span class="age">Age 13</span><h4>Brought to court</h4><p>Maharaja Ayilyam Thirunal invites him to Travancore. Sees Theodore Jensen at work.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><span class="y">1866</span></div>
+        <div class="tl-card"><span class="age">Age 18</span><h4>Marries Bhageerathi Bayi</h4><p>Of the Mavelikkara royal house.</p></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-spacer"></div>
+        <div class="tl-year"><span class="y">1870</span></div>
+        <div class="tl-card"><span class="age">Age 22</span><h4>First commission</h4><p>The Khizhakkepat Palat Krishna Menon family portrait — composed in the watercolour idiom of the day, but already carrying oil's depth.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><span class="y">1873</span></div>
+        <div class="tl-card feature"><span class="age">Age 25</span><h4>Madras &amp; Vienna</h4><p>Wins the Governor's gold medal at the Madras Fine Arts Exhibition. Work sent to Vienna, where it wins again.</p></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-spacer"></div>
+        <div class="tl-year"><span class="y">1879</span></div>
+        <div class="tl-card"><span class="age">Age 31</span><h4>His son Rama Varma is born</h4><p>The younger son — later the <em>Artist Thampuran</em> of Mavelikara — who will carry the work into the next century.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><span class="y">1880</span></div>
+        <div class="tl-card"><span class="age">Age 32</span><h4>Brother joins the studio</h4><p>C. Raja Raja Varma begins painting backgrounds and landscapes. They work together for the next 25 years.</p></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><span class="y">1888</span></div>
+        <div class="tl-card feature"><span class="age">Age 40</span><h4>The Baroda commission</h4><p>Sayajirao Gaekwad III commissions 14 mythological canvases for Lakshmi Vilas Palace. Becomes the artist's principal patron.</p></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-spacer"></div>
+        <div class="tl-year"><span class="y">1889</span></div>
+        <div class="tl-card"><span class="age">Age 41</span><h4>Galaxy of Musicians</h4><p>Eleven women in regional dress — for the Maharaja of Mysore. A vision of an India unified by music.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><span class="y">1893</span></div>
+        <div class="tl-card"><span class="age">Age 45</span><h4>Chicago Columbian Exposition</h4><p>Three gold medals at the World's Fair. International stature.</p></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-spacer"></div>
+        <div class="tl-year"><span class="y">1894</span></div>
+        <div class="tl-card feature"><span class="age">Age 46</span><h4>Press founded · Ghatkopar</h4><p>Lithographic press for the mass production of oleographs — gods at the price of two annas.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><span class="y">1899</span></div>
+        <div class="tl-card"><span class="age">Age 51</span><h4>Press shifts to Lonavla</h4><p>Drier air. German technician Fritz Schleicher manages the machinery.</p></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-spacer"></div>
+        <div class="tl-year"><span class="y">1901</span></div>
+        <div class="tl-card"><span class="age">Age 53</span><h4>Press transferred</h4><p>The press is transferred to Fritz Schleicher, who continues issuing prints under the Ravi Varma name for decades.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><span class="y">1904</span></div>
+        <div class="tl-card feature"><span class="age">Age 56</span><h4>Kaisar-i-Hind Gold Medal</h4><p>Lord Curzon, on behalf of the King-Emperor, confers the medal — and, with it, the personal title <em>Raja</em>.</p></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-spacer"></div>
+        <div class="tl-year"><span class="y">1905</span></div>
+        <div class="tl-card"><span class="age">Age 57</span><h4>Brother dies</h4><p>The death of C. Raja Raja Varma — collaborator, partner, brother. He never recovers.</p></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><span class="y">1906</span></div>
+        <div class="tl-card feature"><span class="age">Age 58</span><h4>Death at Kilimanoor</h4><p>2 October. Diabetes, exhaustion, grief. Died in the palace where he was born.</p></div>
+        <div class="tl-spacer"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding: clamp(60px, 10vh, 110px) 0; text-align: center;">
+  <div class="reveal">
+    <span class="eyebrow">Continue</span>
+    <h2 style="margin: 16px 0 24px; font-style: italic;">Now visit the gallery</h2>
+    <p class="lede" style="max-width: 580px; margin: 0 auto 32px;">Twelve paintings, framed and captioned — including the canvas that started everything.</p>
+    <a class="btn" href="gallery.html">Enter the gallery</a>
+  </div>
+</section>
+
+<script src="data.js?v=15"></script>
+<script>RRV_renderChrome();</script>
+<script src="shared.js?v=15"></script>
+</body>
+</html>
