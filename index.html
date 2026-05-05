@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raja Ravi Varma, The Artist Who Brought India's Gods to Life</title>
-<link rel="stylesheet" href="styles.css?v=39">
-<link rel="stylesheet" href="tweaks.css?v=39">
+<link rel="stylesheet" href="styles.css?v=40">
+<link rel="stylesheet" href="tweaks.css?v=40">
 <style>
 /* === Page-specific === */
 .hero {
@@ -100,33 +100,41 @@
   transition: opacity 0.8s ease;
 }
 .hero-art .caption .cap.is-active { opacity: 1; }
-.hero-art .stamp {
-  position: absolute;
-  top: -28px;
-  right: -28px;
-  width: 110px; height: 110px;
+.hero-name {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.hero-portrait {
+  position: relative;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   border: 1px solid var(--oxblood);
   background: var(--paper);
-  display: flex;
-  align-items: center; justify-content: center;
-  font-family: var(--label);
-  font-size: 0.62rem;
-  letter-spacing: 0.22em;
-  text-align: center;
-  color: var(--oxblood);
-  text-transform: uppercase;
-  line-height: 1.4;
-  transform: rotate(8deg);
-  z-index: 4;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  padding: 3px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
 }
-.hero-art .stamp::before {
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 50%;
+}
+.hero-portrait::before {
   content: "";
   position: absolute; inset: 5px;
   border-radius: 50%;
   border: 1px dashed var(--gold);
+  pointer-events: none;
+  z-index: 2;
 }
+.hero-name .eyebrow { margin-bottom: 0; }
 
 /* Decorative side numerals */
 .side-meta {
@@ -712,7 +720,12 @@
   <section class="hero">
     <div class="hero-text">
       <span class="reveal" style="display:block; font-family: var(--label); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 12px;">A tribute by his great-great-grandson, <a href="https://vishnu.io" target="_blank" rel="noopener" style="color: var(--oxblood);">Dr. Vishnu Ravi</a></span>
-      <span class="eyebrow reveal" style="font-size: 1.4rem; letter-spacing: 0.2em;">Raja Ravi Varma</span>
+      <div class="hero-name reveal">
+        <div class="hero-portrait" aria-hidden="true">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Self_portrait_by_Raja_Ravi_Varma.jpg" alt="">
+        </div>
+        <span class="eyebrow" style="font-size: 1.4rem; letter-spacing: 0.2em;">Raja Ravi Varma</span>
+      </div>
       <h1 data-parallax="-0.3">
         The artist <span class="amp">who brought</span><br>
         India's gods to life
@@ -921,9 +934,9 @@
   </div>
 </section>
 
-<script src="data.js?v=39"></script>
+<script src="data.js?v=40"></script>
 <script>RRV_renderChrome();</script>
-<script src="shared.js?v=39"></script>
+<script src="shared.js?v=40"></script>
 <script>
 (function cycleHero() {
   const frame = document.querySelector('[data-hero-cycle]');
