@@ -753,6 +753,7 @@ body.nav-open .nav-burger span:nth-child(3) { transform: translateY(-5.5px) rota
 
 @media (max-width: 760px) {
   .foot-inner { grid-template-columns: 1fr; }
+  .foot-wander { display: none; }
   .flourish-bg { display: none; }
   .nav-dates { display: none; }
 
