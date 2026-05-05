@@ -158,7 +158,7 @@ window.RRV_renderChrome = function() {
       <div class="foot-inner">
         <div>
           <h4>About this tribute</h4>
-          <p>This site is a personal tribute to Raja Ravi Varma (1848–1906), maintained by his great-great-grandson <a href="https://vishnu.io" target="_blank" rel="noopener">Vishnu Ravi</a>. It gathers the paintings, the press, and the life, a descendant's offering to a great-great-grandfather's monumental work.</p>
+          <p>This site is a personal tribute to Raja Ravi Varma (1848–1906), maintained by his great-great-grandson <a href="https://vishnu.io" target="_blank" rel="noopener">Dr. Vishnu Ravi</a>. It gathers the paintings, the press, and the life, a descendant's offering to a great-great-grandfather's monumental work.</p>
         </div>
         <div class="foot-wander">
           <h4>Wander</h4>
@@ -174,7 +174,7 @@ window.RRV_renderChrome = function() {
       </div>
       <div class="foot-meta">
         <span>rajaravivarma.org</span>
-        <span>A tribute by <a href="https://vishnu.io" target="_blank" rel="noopener">Vishnu Ravi</a></span>
+        <span>&copy; 2026 <a href="https://vishnu.io" target="_blank" rel="noopener">Vishnu Ravi</a></span>
       </div>
     </footer>
   `;
