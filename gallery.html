@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gallery, Raja Ravi Varma</title>
-<link rel="stylesheet" href="styles.css?v=30">
-<link rel="stylesheet" href="tweaks.css?v=30">
+<link rel="stylesheet" href="styles.css?v=31">
+<link rel="stylesheet" href="tweaks.css?v=31">
 <style>
 .gal-hero {
   padding-block: clamp(50px, 8vh, 100px) clamp(30px, 5vh, 60px);
@@ -119,15 +119,18 @@
   border: 1px solid var(--gold);
   box-shadow: 0 0 0 1px var(--oxblood-deep), 0 0 60px rgba(212, 165, 90, 0.2);
 }
-.lb-img-wrap.zoomed { cursor: zoom-out; }
+.lb-img-wrap.zoomed { cursor: grab; }
+.lb-img-wrap.zoomed.dragging { cursor: grabbing; }
 .lb-img {
   max-width: 100%;
   max-height: 86vh;
   display: block;
   transition: transform .25s ease;
   transform-origin: center center;
+  user-select: none;
+  -webkit-user-drag: none;
 }
-.lb-img-wrap.zoomed .lb-img { max-width: none; max-height: none; transform: scale(2.2); }
+.lb-img-wrap.zoomed .lb-img { max-width: none; max-height: none; }
 .lb-side {
   display: flex; flex-direction: column; justify-content: center; gap: 18px;
   color: var(--paper);
@@ -207,12 +210,12 @@
       <h3 id="lbTitle"></h3>
       <div class="meta-row" id="lbMeta"></div>
       <p id="lbBlurb"></p>
-      <div class="hint">Click image to zoom in · ← → to browse · Esc to close</div>
+      <div class="hint">Click to zoom · drag to pan · ← → to browse · Esc to close</div>
     </div>
   </div>
 </div>
 
-<script src="data.js?v=30"></script>
+<script src="data.js?v=31"></script>
 <script>RRV_renderChrome();</script>
 <script>
 (function gallery() {
@@ -260,6 +263,23 @@
   const lbBlurb = document.getElementById('lbBlurb');
   let cur = 0;
 
+  // === Zoom + pan state ===
+  const SCALE = 2.2;
+  let dragging = false;
+  let moved = false;
+  let dragStart = { x: 0, y: 0 };
+  let offset = { x: 0, y: 0 };
+
+  function applyTransform() {
+    lbImg.style.transform = `scale(${SCALE}) translate(${offset.x / SCALE}px, ${offset.y / SCALE}px)`;
+  }
+  function resetZoom() {
+    offset = { x: 0, y: 0 };
+    lbImg.style.transition = '';
+    lbImg.style.transform = '';
+    lbWrap.classList.remove('zoomed', 'dragging');
+  }
+
   function open(i) {
     cur = i;
     const p = items[i];
@@ -269,13 +289,14 @@
     lbYear.textContent = p.year + ' · ' + p.medium;
     lbMeta.innerHTML = `<span>${p.medium}</span><span>${p.location}</span>`;
     lbBlurb.textContent = p.blurb;
-    lbWrap.classList.remove('zoomed');
+    resetZoom();
     lb.classList.add('show');
     document.body.style.overflow = 'hidden';
   }
   function close() {
     lb.classList.remove('show');
     document.body.style.overflow = '';
+    resetZoom();
   }
   function nav(d) {
     cur = (cur + d + items.length) % items.length;
@@ -291,7 +312,48 @@
   document.getElementById('lbPrev').addEventListener('click', () => nav(-1));
   document.getElementById('lbNext').addEventListener('click', () => nav(1));
   lb.addEventListener('click', e => { if (e.target === lb) close(); });
-  lbWrap.addEventListener('click', () => lbWrap.classList.toggle('zoomed'));
+
+  // Click toggles zoom (unless the click was actually a drag)
+  lbWrap.addEventListener('click', () => {
+    if (moved) { moved = false; return; }
+    if (lbWrap.classList.contains('zoomed')) {
+      resetZoom();
+    } else {
+      lbWrap.classList.add('zoomed');
+      offset = { x: 0, y: 0 };
+      applyTransform();
+    }
+  });
+
+  // Pan-on-drag when zoomed (mouse + touch via pointer events)
+  lbWrap.addEventListener('pointerdown', e => {
+    if (!lbWrap.classList.contains('zoomed')) return;
+    dragging = true;
+    moved = false;
+    dragStart = { x: e.clientX - offset.x, y: e.clientY - offset.y };
+    lbImg.style.transition = 'none';
+    lbWrap.classList.add('dragging');
+    try { lbWrap.setPointerCapture(e.pointerId); } catch {}
+  });
+  lbWrap.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const nx = e.clientX - dragStart.x;
+    const ny = e.clientY - dragStart.y;
+    if (Math.abs(nx - offset.x) > 3 || Math.abs(ny - offset.y) > 3) moved = true;
+    offset.x = nx;
+    offset.y = ny;
+    applyTransform();
+  });
+  function endDrag(e) {
+    if (!dragging) return;
+    dragging = false;
+    lbImg.style.transition = '';
+    lbWrap.classList.remove('dragging');
+    try { lbWrap.releasePointerCapture(e.pointerId); } catch {}
+  }
+  lbWrap.addEventListener('pointerup', endDrag);
+  lbWrap.addEventListener('pointercancel', endDrag);
+
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('show')) return;
     if (e.key === 'Escape') close();
@@ -300,6 +362,6 @@
   });
 })();
 </script>
-<script src="shared.js?v=30"></script>
+<script src="shared.js?v=31"></script>
 </body>
 </html>
