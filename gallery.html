@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gallery, Raja Ravi Varma</title>
-<link rel="stylesheet" href="styles.css?v=31">
-<link rel="stylesheet" href="tweaks.css?v=31">
+<link rel="stylesheet" href="styles.css?v=33">
+<link rel="stylesheet" href="tweaks.css?v=33">
 <style>
 .gal-hero {
   padding-block: clamp(50px, 8vh, 100px) clamp(30px, 5vh, 60px);
@@ -121,6 +121,33 @@
 }
 .lb-img-wrap.zoomed { cursor: grab; }
 .lb-img-wrap.zoomed.dragging { cursor: grabbing; }
+
+.lb-controls {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  z-index: 5;
+}
+.lb-ctrl {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gold);
+  background: rgba(20, 10, 8, 0.85);
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+.lb-ctrl:hover { background: var(--oxblood); }
+.lb-ctrl:disabled { opacity: 0.35; cursor: not-allowed; }
 .lb-img {
   max-width: 100%;
   max-height: 86vh;
@@ -204,18 +231,23 @@
   <div class="lb-inner">
     <div class="lb-img-wrap" id="lbImgWrap">
       <img class="lb-img" id="lbImg" alt="">
+      <div class="lb-controls">
+        <button class="lb-ctrl" id="lbZoomOut" aria-label="Zoom out">−</button>
+        <button class="lb-ctrl" id="lbZoomReset" aria-label="Reset zoom">⊙</button>
+        <button class="lb-ctrl" id="lbZoomIn" aria-label="Zoom in">+</button>
+      </div>
     </div>
     <div class="lb-side">
       <span class="eyebrow" id="lbYear"></span>
       <h3 id="lbTitle"></h3>
       <div class="meta-row" id="lbMeta"></div>
       <p id="lbBlurb"></p>
-      <div class="hint">Click to zoom · drag to pan · ← → to browse · Esc to close</div>
+      <div class="hint">Scroll or +/− to zoom · drag to pan · ← → to browse · Esc to close</div>
     </div>
   </div>
 </div>
 
-<script src="data.js?v=31"></script>
+<script src="data.js?v=33"></script>
 <script>RRV_renderChrome();</script>
 <script>
 (function gallery() {
@@ -264,20 +296,52 @@
   let cur = 0;
 
   // === Zoom + pan state ===
-  const SCALE = 2.2;
+  const MIN_SCALE = 1;
+  const MAX_SCALE = 5;
+  const TOGGLE_SCALE = 2.2;
+  let scale = 1;
   let dragging = false;
   let moved = false;
   let dragStart = { x: 0, y: 0 };
   let offset = { x: 0, y: 0 };
 
+  const lbZoomIn = document.getElementById('lbZoomIn');
+  const lbZoomOut = document.getElementById('lbZoomOut');
+  const lbZoomReset = document.getElementById('lbZoomReset');
+
   function applyTransform() {
-    lbImg.style.transform = `scale(${SCALE}) translate(${offset.x / SCALE}px, ${offset.y / SCALE}px)`;
+    if (scale === 1) {
+      lbImg.style.transform = '';
+    } else {
+      lbImg.style.transform = `scale(${scale}) translate(${offset.x / scale}px, ${offset.y / scale}px)`;
+    }
+    lbWrap.classList.toggle('zoomed', scale > 1);
+    lbZoomIn.disabled = scale >= MAX_SCALE;
+    lbZoomOut.disabled = scale <= MIN_SCALE;
   }
+
+  function setZoom(newScale, focusX, focusY) {
+    newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, newScale));
+    if (newScale === scale) return;
+    if (focusX != null && focusY != null) {
+      // Zoom toward focus point (cursor) so it stays put under the pointer.
+      const ratio = newScale / scale;
+      offset.x = focusX * (1 - ratio) + offset.x * ratio;
+      offset.y = focusY * (1 - ratio) + offset.y * ratio;
+    }
+    scale = newScale;
+    if (scale === 1) offset = { x: 0, y: 0 };
+    applyTransform();
+  }
+
   function resetZoom() {
+    scale = 1;
     offset = { x: 0, y: 0 };
     lbImg.style.transition = '';
     lbImg.style.transform = '';
     lbWrap.classList.remove('zoomed', 'dragging');
+    lbZoomIn.disabled = false;
+    lbZoomOut.disabled = true;
   }
 
   function open(i) {
@@ -313,21 +377,33 @@
   document.getElementById('lbNext').addEventListener('click', () => nav(1));
   lb.addEventListener('click', e => { if (e.target === lb) close(); });
 
-  // Click toggles zoom (unless the click was actually a drag)
-  lbWrap.addEventListener('click', () => {
+  // Click toggles between 1x and TOGGLE_SCALE (unless the click was a drag)
+  lbWrap.addEventListener('click', e => {
+    if (e.target.closest('.lb-ctrl')) return;
     if (moved) { moved = false; return; }
-    if (lbWrap.classList.contains('zoomed')) {
-      resetZoom();
-    } else {
-      lbWrap.classList.add('zoomed');
-      offset = { x: 0, y: 0 };
-      applyTransform();
-    }
+    setZoom(scale > 1 ? 1 : TOGGLE_SCALE);
   });
+
+  // Wheel: zoom toward cursor
+  lbWrap.addEventListener('wheel', e => {
+    if (e.target.closest('.lb-ctrl')) return;
+    e.preventDefault();
+    const r = lbWrap.getBoundingClientRect();
+    const cx = e.clientX - (r.left + r.width / 2);
+    const cy = e.clientY - (r.top + r.height / 2);
+    const delta = e.deltaY < 0 ? 0.2 : -0.2;
+    setZoom(scale + delta, cx, cy);
+  }, { passive: false });
+
+  // Buttons: step zoom around centre
+  lbZoomIn.addEventListener('click', e => { e.stopPropagation(); setZoom(scale + 0.5); });
+  lbZoomOut.addEventListener('click', e => { e.stopPropagation(); setZoom(scale - 0.5); });
+  lbZoomReset.addEventListener('click', e => { e.stopPropagation(); setZoom(1); });
 
   // Pan-on-drag when zoomed (mouse + touch via pointer events)
   lbWrap.addEventListener('pointerdown', e => {
-    if (!lbWrap.classList.contains('zoomed')) return;
+    if (e.target.closest('.lb-ctrl')) return;
+    if (scale <= 1) return;
     dragging = true;
     moved = false;
     dragStart = { x: e.clientX - offset.x, y: e.clientY - offset.y };
@@ -359,9 +435,12 @@
     if (e.key === 'Escape') close();
     if (e.key === 'ArrowLeft') nav(-1);
     if (e.key === 'ArrowRight') nav(1);
+    if (e.key === '+' || e.key === '=') setZoom(scale + 0.5);
+    if (e.key === '-' || e.key === '_') setZoom(scale - 0.5);
+    if (e.key === '0') setZoom(1);
   });
 })();
 </script>
-<script src="shared.js?v=31"></script>
+<script src="shared.js?v=33"></script>
 </body>
 </html>

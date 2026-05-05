@@ -39,7 +39,7 @@ window.RRV_PAINTINGS = [
     medium: 'Oil on canvas',
     location: 'Sri Chitra Art Gallery, Thiruvananthapuram',
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Mohini_on_a_swing.jpg/1280px-Mohini_on_a_swing.jpg',
-    srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Mohini_on_a_swing.jpg/1600px-Mohini_on_a_swing.jpg',
+    srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Mohini_on_a_swing.jpg/1280px-Mohini_on_a_swing.jpg',
     blurb: 'The enchantress mid-flight, sari rippling, a study in motion and grace.'
   },
   {
@@ -69,7 +69,7 @@ window.RRV_PAINTINGS = [
     medium: 'Oil on canvas',
     location: 'Sri Chitra Art Gallery',
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Sita_Bhumipravesh.jpg/1280px-Sita_Bhumipravesh.jpg',
-    srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Sita_Bhumipravesh.jpg/1600px-Sita_Bhumipravesh.jpg',
+    srcLarge: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Sita_Bhumipravesh.jpg/1280px-Sita_Bhumipravesh.jpg',
     blurb: 'Sita asks the earth to swallow her, a final, harrowing canvas.'
   },
   {
