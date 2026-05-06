@@ -106,6 +106,22 @@
   gap: 14px;
   margin-bottom: 24px;
 }
+.hero-name-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.hero-name-text .tribute {
+  display: block;
+  font-family: var(--label);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.hero-name-text .tribute a { color: var(--oxblood); }
 .hero-portrait {
   position: relative;
   flex-shrink: 0;
@@ -308,49 +324,31 @@
   position: relative;
   text-align: center;
 }
-.lineage-monogram {
+.lineage-portrait {
   display: inline-block;
-  width: clamp(220px, 26vw, 320px);
-  aspect-ratio: 1;
+  width: clamp(240px, 28vw, 360px);
+  aspect-ratio: 4 / 5;
   border: 1px solid var(--gold);
   background: var(--paper);
   box-shadow: 0 30px 60px -30px rgba(0,0,0,0.35);
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 14px;
   transform: rotate(-1deg);
 }
-.lineage-monogram::before {
+.lineage-portrait::before {
   content: "";
   position: absolute;
-  inset: 14px;
+  inset: 6px;
   border: 1px solid var(--rule);
+  pointer-events: none;
 }
-.lineage-monogram .ornament-top,
-.lineage-monogram .ornament-bot {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--display);
-  color: var(--gold);
-  font-size: 1rem;
-  letter-spacing: 0.4em;
-}
-.lineage-monogram .ornament-top { top: 28px; }
-.lineage-monogram .ornament-bot { bottom: 28px; }
-.lineage-monogram .glyph {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: clamp(7rem, 12vw, 11rem);
-  color: var(--oxblood);
-  line-height: 1;
-}
-.lineage-monogram .glyph .v {
-  color: var(--gold);
-  font-size: 0.6em;
-  vertical-align: super;
-  margin-left: -0.15em;
+.lineage-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  filter: sepia(0.08) contrast(1.02);
 }
 .lineage-art .caption {
   font-family: var(--label);
@@ -719,12 +717,14 @@
 
   <section class="hero">
     <div class="hero-text">
-      <span class="reveal" style="display:block; font-family: var(--label); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 12px;">A tribute by his great-great-grandson, <a href="https://vishnu.io" target="_blank" rel="noopener" style="color: var(--oxblood);">Dr. Vishnu Ravi</a></span>
       <div class="hero-name reveal">
         <div class="hero-portrait" aria-hidden="true">
           <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Self_portrait_by_Raja_Ravi_Varma.jpg" alt="">
         </div>
-        <span class="eyebrow" style="font-size: 1.4rem; letter-spacing: 0.2em;">Raja Ravi Varma</span>
+        <div class="hero-name-text">
+          <span class="eyebrow" style="font-size: 1.4rem; letter-spacing: 0.2em; margin-bottom: 0;">Raja Ravi Varma</span>
+          <span class="tribute">A tribute by his great-great-grandson, <a href="https://vishnu.io" target="_blank" rel="noopener">Dr. Vishnu Ravi</a></span>
+        </div>
       </div>
       <h1 data-parallax="-0.3">
         The artist <span class="amp">who brought</span><br>
@@ -843,52 +843,6 @@
   </div>
 </div>
 
-<section class="lineage">
-  <div class="wrap">
-    <div class="lineage-grid">
-      <div class="lineage-art reveal">
-        <div class="lineage-monogram">
-          <span class="ornament-top">✦ ✦ ✦</span>
-          <span class="glyph">R<span class="v">v</span></span>
-          <span class="ornament-bot">✦ ✦ ✦</span>
-        </div>
-        <div class="caption">
-          Rama Varma · b. 1879<br>
-          The Artist Thampuran of Mavelikara
-        </div>
-      </div>
-
-      <div class="lineage-body reveal">
-        <span class="eyebrow">The line continues</span>
-        <h2>His son, <span class="name">Rama Varma</span><br><span style="font-style: normal; font-size: 0.5em; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-top: 14px;">b. 1879 · Artist Thampuran of Mavelikara</span></h2>
-
-        <p>The younger son of Raja Ravi Varma, Rama Varma, known across Kerala as the <em>Artist Thampuran</em>, inherited his father's hand and carried his discipline forward into the next century. From 1897 to 1903 he studied at the Sir J. J. School of Art in Bombay, then returned home to Mavelikara, set up his own studio, and worked alongside his father until Ravi Varma's death in 1906.</p>
-
-        <p>He painted portraits, history scenes, and figures from legend, among them <em>Ajavilapam</em>, a portrait of Sir Winston Churchill, a study of Rana Pratap, and, in 1948, a portrait of his father. Many of his canvases carry the unmistakable proportions, the cast of light, the fall of cloth that he had learned at his father's side.</p>
-
-        <p class="pull">"He left behind an impressive legacy as an artist, teacher, and social activist, and was the driving force behind the establishment of the Raja Ravi Varma College of Fine Arts in Mavelikara."</p>
-
-        <p>The school he built, known locally as the <em>Painting School</em>, welcomed students from every section of Keralite society. Rama Varma married Gowri Kunjamma, sister of Dewan P. G. N. Unnithan, and had ten children. The line he carried forward runs, four generations on, to the descendant who has gathered this site.</p>
-
-        <div class="lineage-facts">
-          <div class="f">
-            <span class="y">1879</span>
-            <span class="l">Born · younger son of<br>Raja Ravi Varma</span>
-          </div>
-          <div class="f">
-            <span class="y">1897<span style="font-size: 0.5em;">–</span>03</span>
-            <span class="l">Sir J. J. School of Art<br>Bombay</span>
-          </div>
-          <div class="f">
-            <span class="y">Mavelikara</span>
-            <span class="l">Founded the Raja Ravi Varma<br>College of Fine Arts</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="chapters wrap">
   <div class="reveal" style="text-align: center;">
     <span class="eyebrow">Wander the Site</span>
@@ -931,6 +885,50 @@
       <p>1848 to 1906, year by year, patrons, prizes, paintings, the press, and the long quiet at Kilimanoor.</p>
       <span class="arrow">See the years</span>
     </a>
+  </div>
+</section>
+
+<section class="lineage">
+  <div class="wrap">
+    <div class="lineage-grid">
+      <div class="lineage-art reveal">
+        <div class="lineage-portrait">
+          <img src="images/rama-varma.jpg" alt="Rama Varma, the Artist Thampuran of Mavelikara">
+        </div>
+        <div class="caption">
+          Rama Varma · b. 1879<br>
+          The Artist Thampuran of Mavelikara
+        </div>
+      </div>
+
+      <div class="lineage-body reveal">
+        <span class="eyebrow">The line continues</span>
+        <h2>His son, <span class="name">Rama Varma</span><br><span style="font-style: normal; font-size: 0.5em; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-top: 14px;">b. 1879 · Artist Thampuran of Mavelikara</span></h2>
+
+        <p>The younger son of Raja Ravi Varma, Rama Varma, known across Kerala as the <em>Artist Thampuran</em>, inherited his father's hand and carried his discipline forward into the next century. From 1897 to 1903 he studied at the Sir J. J. School of Art in Bombay, then returned home to Mavelikara, set up his own studio, and worked alongside his father until Ravi Varma's death in 1906.</p>
+
+        <p>He painted portraits, history scenes, and figures from legend, among them <em>Ajavilapam</em>, a portrait of Sir Winston Churchill, a study of Rana Pratap, and, in 1948, a portrait of his father. Many of his canvases carry the unmistakable proportions, the cast of light, the fall of cloth that he had learned at his father's side.</p>
+
+        <p class="pull">"He left behind an impressive legacy as an artist, teacher, and social activist, and was the driving force behind the establishment of the Raja Ravi Varma College of Fine Arts in Mavelikara."</p>
+
+        <p>The school he built, known locally as the <em>Painting School</em>, welcomed students from every section of Keralite society. Rama Varma married Gowri Kunjamma, sister of Dewan P. G. N. Unnithan, and had ten children. The line he carried forward runs, four generations on, to the descendant who has gathered this site.</p>
+
+        <div class="lineage-facts">
+          <div class="f">
+            <span class="y">1879</span>
+            <span class="l">Born · younger son of<br>Raja Ravi Varma</span>
+          </div>
+          <div class="f">
+            <span class="y">1897<span style="font-size: 0.5em;">–</span>03</span>
+            <span class="l">Sir J. J. School of Art<br>Bombay</span>
+          </div>
+          <div class="f">
+            <span class="y">Mavelikara</span>
+            <span class="l">Founded the Raja Ravi Varma<br>College of Fine Arts</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
