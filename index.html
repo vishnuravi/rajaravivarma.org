@@ -433,6 +433,7 @@
   position: relative;
   transition: border-color .25s, transform .25s, background .25s;
   border-bottom: 0;
+  overflow: hidden;
 }
 .chapter:hover {
   border-color: var(--gold);
@@ -445,6 +446,28 @@
   left: 0; right: 0; bottom: 0;
   height: 3px;
   background: linear-gradient(to right, var(--ochre), var(--oxblood));
+}
+.chapter-img {
+  display: block;
+  margin: -28px -28px 24px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--rule);
+}
+.chapter-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: sepia(0.12) contrast(1.02) saturate(0.92);
+  transition: filter .35s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.chapter:hover .chapter-img img {
+  filter: sepia(0) contrast(1.02) saturate(1);
+  transform: scale(1.03);
 }
 .chapter .num {
   font-family: var(--display);
@@ -850,36 +873,42 @@
   </div>
   <div class="chapter-grid" data-stagger>
     <a class="chapter reveal reveal-up" href="biography.html">
+      <span class="chapter-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Self_portrait_by_Raja_Ravi_Varma.jpg" alt="Self-portrait of Raja Ravi Varma" loading="lazy"></span>
       <span class="num">i</span>
       <h3>The Life</h3>
       <p>From a feudal palace in Travancore to the durbar halls of Baroda, the biography, told as a timeline.</p>
       <span class="arrow">Read the biography</span>
     </a>
     <a class="chapter reveal reveal-up" href="gallery.html">
+      <span class="chapter-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Ravi_Varma-Princess_Damayanthi_talking_with_Royal_Swan_about_Nala.jpg/1280px-Ravi_Varma-Princess_Damayanthi_talking_with_Royal_Swan_about_Nala.jpg" alt="Damayanti and the royal swan" loading="lazy"></span>
       <span class="num">ii</span>
       <h3>The Gallery</h3>
       <p>A curated selection of his canvases, framed and captioned. Click any to look closer.</p>
       <span class="arrow">Enter the gallery</span>
     </a>
     <a class="chapter reveal reveal-up" href="shakuntala.html">
+      <span class="chapter-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Raja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg/1280px-Raja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg" alt="Shakuntala feigns plucking a thorn from her foot" loading="lazy"></span>
       <span class="num">iii</span>
       <h3>Shakuntala</h3>
       <p>A scrolling, close-reading of his most famous painting, the thorn, the glance, the lover beyond the frame.</p>
       <span class="arrow">Look closer</span>
     </a>
     <a class="chapter reveal reveal-up" href="press.html">
+      <span class="chapter-img"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Ravi_Varma-Lakshmi.jpg" alt="Lakshmi, the press oleograph" loading="lazy"></span>
       <span class="num">iv</span>
       <h3>The Press</h3>
       <p>How a German lithography machine and a brother named Raja put the gods on every wall in India.</p>
       <span class="arrow">Visit Lonavla</span>
     </a>
     <a class="chapter reveal reveal-up" href="legacy.html">
+      <span class="chapter-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Yashoda_with_Krishna%2C_Raja_Ravi_Varma.jpg" alt="Yashoda adorning Krishna" loading="lazy"></span>
       <span class="num">v</span>
       <h3>Style &amp; Legacy</h3>
       <p>East meets West, on canvas. And then on every poster, calendar, and matinee screen for a century after.</p>
       <span class="arrow">Trace the influence</span>
     </a>
     <a class="chapter reveal reveal-up" href="biography.html#timeline">
+      <span class="chapter-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Raja_Ravi_Varma%2C_Jatayu_vadha%2C_1906.jpg/1280px-Raja_Ravi_Varma%2C_Jatayu_vadha%2C_1906.jpg" alt="Jatayu Vadha, 1906, his last canvas" loading="lazy"></span>
       <span class="num">vi</span>
       <h3>A Timeline</h3>
       <p>1848 to 1906, year by year, patrons, prizes, paintings, the press, and the long quiet at Kilimanoor.</p>
